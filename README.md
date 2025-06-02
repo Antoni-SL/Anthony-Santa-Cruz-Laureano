@@ -3,7 +3,7 @@
 **Autor:** ANTHONY ALEXI SANTA CRUZ LAUREANO  
 **Fecha:** 03/06/2025  
 **Cliente:** IZIPAY  
-**Dataset usado:** [Netflix Movies and TV Shows - Kaggle](https://www.kaggle.com/datasets/shivamb/netflix-shows)
+**Dataset:** [Netflix Movies and TV Shows - Kaggle](https://www.kaggle.com/datasets/shivamb/netflix-shows)
 
 ---
 
