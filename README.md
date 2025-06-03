@@ -21,7 +21,6 @@ Este proyecto simula el desarrollo de una solución analítica para una platafor
 | `sql/`           | Script SQL con modelo relacional                                        |
 | `excel/`         | Reporte dinámico con gráficas y macro para consultar por año            |
 | `power_bi/`      | Dashboard en Power BI Desktop y capturas del mismo                      |
-| `power_apps/`    | Instrucciones de uso de la Canvas App y capturas de interfaz            |
 | `recursos/`      | Dataset original (netflix_titles.csv)                                   |
 
 ---
