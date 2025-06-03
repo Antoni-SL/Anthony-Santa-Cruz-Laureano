@@ -94,3 +94,7 @@ EnviarCorreoDesdeApp.Run(
     DataCardValueEstado.Text,
     DataCardValueComentario.Text
 )
+
+🔒 Nota
+No se publicó la app ni se ejecutó el flujo por limitación de licencia Microsoft 365 
+(Power Apps y Power Automate requieren cuenta organizacional). Sin embargo, se documenta su estructura lógica para referencia y fácil despliegue futuro.
