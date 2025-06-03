@@ -1,0 +1,96 @@
+# Power Apps + Power Automate – Documentación de Diseño
+
+## 🧩 Objetivo
+
+Diseñar una Canvas App en Power Apps conectada a una fuente de datos Excel (subida a SharePoint), que:
+
+- Muestra una galería de contenidos (películas/series).
+- Permite registrar nuevos títulos mediante un formulario.
+- Filtra automáticamente por Estado = "Activo".
+- Utiliza Patch() para guardar nuevos registros.
+- Dispara un flujo de Power Automate para enviar un correo con la información del formulario.
+
+---
+
+## 📂 Fuente de datos
+
+Archivo: `BD_CANVAS.xlsx`  
+Ubicación: SharePoint → Documentos compartidos  
+Tabla: `Tabla1` (creada con Ctrl + T en Excel)  
+Columnas:
+- ID (numérico)
+- Nombre (texto)
+- Tipo (texto: "Serie", "Película", etc.)
+- Estado (texto: "Activo", "Inactivo")
+- Comentario (texto)
+
+---
+
+## 🎨 Estructura de la App
+
+Pantalla: `FormularioScreen`
+
+### Controles:
+
+- **Galería (`Gallery1`)**  
+  - Items:
+    ```powerapps
+    Filter(Tabla1, Estado = "Activo")
+    ```
+
+- **Formulario (`Form1`)**  
+  - DataSource: `Tabla1`  
+  - Campos: `Nombre`, `Tipo`, `Estado`, `Comentario`  
+  - DefaultMode: `FormMode.New`
+
+- **Botón Guardar (`Button1`)**  
+  - OnSelect:
+    ```powerapps
+    SubmitForm(Form1);
+    If(Form1.Valid,
+        Notify("Registro guardado correctamente", NotificationType.Success),
+        Notify("Por favor completa los campos obligatorios", NotificationType.Error)
+    )
+    ```
+
+---
+
+## 🔁 Power Automate
+
+Flujo: `EnviarCorreoDesdeApp`
+
+### Disparador:
+- "Cuando se ejecuta un flujo desde Power Apps"
+
+### Entradas:
+- `Nombre`, `Tipo`, `Estado`, `Comentario`
+
+### Acción:
+- **Enviar correo (V2)**  
+  - A: [correo de prueba o destinatario]
+  - Asunto: `Nuevo título registrado desde Power Apps`
+  - Cuerpo:
+    ```
+    Nombre: @{triggerBody()['Nombre']}
+    Tipo: @{triggerBody()['Tipo']}
+    Estado: @{triggerBody()['Estado']}
+    Comentario: @{triggerBody()['Comentario']}
+    ```
+
+---
+
+## 🔘 Integración en Power Apps
+
+### Conexión al flujo:
+
+- Acción > Power Automate > Agregar flujo `EnviarCorreoDesdeApp`
+
+### Llamado desde botón (luego de SubmitForm):
+
+```powerapps
+EnviarCorreoDesdeApp.Run(
+    DataCardValueNombre.Text,
+    DataCardValueTipo.Text,
+    DataCardValueEstado.Text,
+    DataCardValueComentario.Text
+)
