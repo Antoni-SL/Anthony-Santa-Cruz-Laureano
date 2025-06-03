@@ -27,7 +27,7 @@ CREATE TABLE directors (
 -- Actores
 CREATE TABLE cast_members (
     show_id VARCHAR(20),
-    actor_name VARCHAR(255),
+    actor_name NVARCHAR(MAX),
     FOREIGN KEY (show_id) REFERENCES titles(show_id)
 );
 
