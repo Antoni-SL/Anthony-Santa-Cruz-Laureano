@@ -40,7 +40,6 @@ Este proyecto simula el desarrollo de una solución analítica para una platafor
 2. Ejecutar el script SQL en un motor SQL Server local.
 3. Abrir el Excel y probar la macro.
 4. Abrir el archivo `.pbix` en Power BI Desktop.
-5. Revisar las capturas y flujo de Power Apps.
 
 ---
 
