@@ -27,7 +27,7 @@ Este proyecto simula el desarrollo de una solución analítica para una platafor
 
 ## ⚙️ Herramientas utilizadas
 
-- Python (pandas, seaborn, matplotlib)
+- Python
 - SQL Server
 - Excel (gráficas dinámicas y macros VBA)
 - Power BI Desktop + Service
