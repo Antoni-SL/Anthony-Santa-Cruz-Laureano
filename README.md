@@ -30,8 +30,7 @@ Este proyecto simula el desarrollo de una solución analítica para una platafor
 - Python
 - SQL Server
 - Excel (gráficas dinámicas y macros VBA)
-- Power BI Desktop + Service
-- Power Apps + Power Automate
+- Power BI Desktop
 
 ---
 
