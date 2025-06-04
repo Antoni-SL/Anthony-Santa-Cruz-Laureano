@@ -1,1 +1,14 @@
+1. Revisión y limpieza básica
+ - Se verificó que los valores estaban correctamente separados en columnas.
+ - La columna date_added (fecha en la que el contenido fue agregado a Netflix) se encontraba como texto.
+2. Validación de valores nulos o inconsistentes
+ - Se usó filtros y condicionales para validar celdas vacías en type, title o rating.
+ - Las filas con campos esenciales vacíos fueron excluidas del análisis o rellenadas si era posible.
 
+3. Datos preparados para visualización
+Después de esta limpieza, los datos estaban listos para crear tablas dinámicas.
+
+Este archivo contiene:
+- Los datos limpios
+- Tablas dinámicas
+- La macro activa con botón
